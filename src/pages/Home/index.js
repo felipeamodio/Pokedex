@@ -6,8 +6,11 @@ import api from '../../services/api';
 
 import Pokedex from '../../components/Pokedex';
 
+
 export default function Home(){
     const [pokemons, setPokemons] = useState([]);
+
+    let numColumns = 3;
 
     useEffect(() => {
         async function loadPokemons(){
@@ -24,6 +27,7 @@ export default function Home(){
             <FlatList 
                 data={pokemons}
                 renderItem={({item}) => <Pokedex data={item} />}
+                numColumns={numColumns}
             />
         </Container>
     )
